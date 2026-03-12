@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live AQI Prediction</title>
+</head>
+<body>
+    <h2>Live AQI & Prediction Checker</h2>
+
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter City Name" required>
+        <button type="submit">Check AQI</button>
+    </form>
+
+    {% if error %}
+        <h3 style="color:red;">{{ error }}</h3>
+    {% endif %}
+
+    {% if current_aqi %}
+        <h3>Current AQI in {{ city }}: {{ current_aqi }} ({{ current_label }})</h3>
+    {% endif %}
+
+    {% if predicted_aqi %}
+        <h3>Predicted AQI for next day: {{ predicted_aqi }} ({{ predicted_label }})</h3>
+    {% endif %}
+
+</body>
+</html>
